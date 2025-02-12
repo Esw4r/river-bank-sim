@@ -4,5 +4,5 @@
 #include "assets/map.h"
 
 int main() {
-
+    return 0;
 }

@@ -1,11 +1,13 @@
 #include <string>
 
+#import "names.h"
+
 typedef unsigned char uint8;
 using namespace std;
 
 class Animal {
 private:
-  string name;
+  string name[2];
   uint8 health;
   uint8 age;
   uint8 expectancy;
@@ -14,6 +16,8 @@ private:
   uint8 thirst;
   uint8 speed;
   uint8 vision;
+  uint8 stamina;
+  uint8 strength;
   uint8 direction[2];
   uint8 eyes[2];
   uint8 ears[2];
@@ -24,9 +28,16 @@ private:
   uint8 fov;
   uint8 posn[2];
   uint8 fear;
+  uint8 herdTend;
 
 public:
   Animal() {}
+
+  string *getName() { return name; }
+  void setName(string firstName, string lastName) {
+    name[0] = firstName;
+    name[1] = lastName;
+  }
 
   uint8 getHealth() { return health; }
   void setHealth(uint8 x) { health = x; }
@@ -36,6 +47,9 @@ public:
 
   uint8 getExp() { return expectancy; }
   void setExp(uint8 x) { expectancy = x; }
+
+  bool getGender() { return gender; }
+  void setGender(bool x) { gender = x; }
 
   uint8 getHunger() { return hunger; }
   void setHunger(uint8 x) { hunger = x; }
@@ -88,11 +102,29 @@ public:
   void setFov(uint8 x) { fov = x; }
 };
 
+class Lion : public Animal {
+private:
+public:
+  void search() {}
+
+  Lion reproduce(Lion x, Lion y) {
+    Lion z;
+
+    z.setGender(rand() %  2);
+
+    string firstName = (z.getGender()) ? mNames[rand() % 100] : fNames[rand() % 100];
+    string lastName = (x.getGender()) ? x.getName()[1] : y.getName()[1];
+
+    z.setName(firstName, lastName);
+
+    
+
+    return z;
+  }
+};
+
 class Bison : public Animal {
 private:
-  uint8 herdTend;
-  uint8 strength;
-
 public:
   void search() {}
 };
