@@ -18,15 +18,10 @@ go to the project directory
   cd river-bank-sim
 ```
 
-compile the code
+run the code
 
 ```bash
-  g++ main.cpp -o main
+  cargo run
 ```
 
-run the game
-
-```bash
-  ./main
-```
 
