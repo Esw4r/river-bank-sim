@@ -12,22 +12,15 @@ pub struct Lion {
     vision: u8,
     stamina: u8,
     strength: u8,
-    dir_x: u8,
-    dir_y: u8,
-    left_eye: u8,
-    right_eye: u8,
-    left_ear: u8,
-    right_ear: u8,
-    front_left_leg: u8,
-    front_right_leg: u8,
-    rear_left_leg: u8,
-    rear_right_leg: u8,
+    dir: u8, // 0 to 179
+    eye: [u8; 2],
+    ear: [u8; 2],
+    limbs: [u8; 4],
     head: u8,
     torso: u8,
     genitals: u8,
     fov: u8,
-    posn_x: u8,
-    posn_y: u8,
+    posn: [u8; 2],
     fear: u8,
     herd_tend: u8,
     bison_cache: Vec<bison::Bison>,
@@ -112,67 +105,32 @@ impl Lion {
         self.strength = x;
     }
 
-    pub fn get_dir_x(&self) -> u8 {
-        self.dir_x
+    pub fn get_dir(&self) -> u8 {
+        self.dir
     }
-    pub fn set_dir_x(mut self, x: u8) {
-        self.dir_x = x;
-    }
-
-    pub fn get_dir_y(&self) -> u8 {
-        self.dir_y
-    }
-    pub fn set_dir_y(mut self, x: u8) {
-        self.dir_y = x;
+    pub fn set_dir(mut self, x: u8) {
+        self.dir = x;
     }
 
-    pub fn get_left_eye(&self) -> u8 {
-        self.left_eye
+    pub fn get_eye(&self) -> [u8; 2] {
+        self.eye
     }
-    pub fn set_left_eye(mut self, x: u8) {
-        self.left_eye = x;
-    }
-
-    pub fn get_right_eye(&self) -> u8 {
-        self.right_eye
-    }
-    pub fn set_right_eye(mut self, x: u8) {
-        self.right_eye = x;
+    pub fn set_eye(mut self, x: u8, y: u8) {
+        self.eye = [x, y];
     }
 
-    pub fn get_left_ear(&self) -> u8 {
-        self.left_ear
+    pub fn get_ear(&self) -> [u8; 2] {
+        self.ear
     }
-    pub fn set_left_ear(mut self, x: u8) {
-        self.left_ear = x;
-    }
-
-    pub fn get_front_left_leg(&self) -> u8 {
-        self.front_left_leg
-    }
-    pub fn set_front_left_leg(mut self, x: u8) {
-        self.front_left_leg = x;
+    pub fn set_ear(mut self, x: u8, y: u8) {
+        self.ear = [x, y];
     }
 
-    pub fn get_front_right_leg(&self) -> u8 {
-        self.front_right_leg
+    pub fn get_limbs(&self) -> [u8; 4] {
+        self.limbs
     }
-    pub fn set_front_right_leg(mut self, x: u8) {
-        self.front_right_leg = x;
-    }
-
-    pub fn get_rear_left_leg(&self) -> u8 {
-        self.rear_left_leg
-    }
-    pub fn set_rear_left_leg(mut self, x: u8) {
-        self.rear_left_leg = x;
-    }
-
-    pub fn get_rear_right_leg(&self) -> u8 {
-        self.rear_right_leg
-    }
-    pub fn set_rear_right_leg(mut self, x: u8) {
-        self.rear_right_leg = x;
+    pub fn set_limbs(mut self, w: u8, x: u8, y: u8, z: u8) {
+        self.limbs = [w, x, y, z];
     }
 
     pub fn get_head(&self) -> u8 {
@@ -203,18 +161,11 @@ impl Lion {
         self.fov = x;
     }
 
-    pub fn get_posn_x(&self) -> u8 {
-        self.posn_x
+    pub fn get_posn(&self) -> [u8; 2] {
+        self.posn
     }
-    pub fn set_posn_x(mut self, x: u8) {
-        self.posn_x = x;
-    }
-
-    pub fn get_posn_y(&self) -> u8 {
-        self.posn_y
-    }
-    pub fn set_posn_y(mut self, x: u8) {
-        self.posn_y = x;
+    pub fn set_posn(mut self, x: u8, y: u8) {
+        self.posn = [x, y];
     }
 
     pub fn get_fear(&self) -> u8 {
