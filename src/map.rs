@@ -15,10 +15,22 @@ impl Map {
             let b = self.b_coeffs[j] as f64;
             let x = x as f64;
             let n = self.n as f64;
-            let cur_term: f64 = a*((b*3.14*x)/n).sin();
+            let cur_term: f64 = a * ((b * 3.14 * x) / n).sin();
             y += cur_term as u8;
             j += 1;
         }
-        y+x
+        y + x
+    }
+
+    pub fn lion_camp(n: u8, c: u8) -> [u8; 2] {
+        let x = if c >= 10 { 10 } else { c };
+        let y = if c >= 10 { 10 } else { c };
+        [x, y]
+    }
+
+    pub fn bison_camp(n: u8, c: u8) -> [u8; 2] {
+        let x = if c >= 10 { n-10 } else { n-c };
+        let y = if c >= 10 { n-10 } else { n-c };
+        [x, y]
     }
 }
