@@ -1,8 +1,7 @@
 use crate::bison;
 
 pub struct Lion {
-    first_name: String,
-    last_name: String,
+    name: [String; 2],
     health: u8,
     age: u8,
     exp: u8,
@@ -36,18 +35,11 @@ pub struct Lion {
 }
 
 impl Lion {
-    pub fn get_first_name(&self) -> &String {
-        &self.first_name
+    pub fn get_name(&self) -> &[String; 2] {
+        &self.name
     }
-    pub fn set_first_name(mut self, x: &str) {
-        self.first_name = x.to_string();
-    }
-
-    pub fn get_last_name(&self) -> &String {
-        &self.last_name
-    }
-    pub fn set_last_name(mut self, x: &str) {
-        self.last_name = x.to_string();
+    pub fn set_name(mut self, x: &str, y: &str) {
+        self.name = [x.to_string(), y.to_string()];
     }
 
     pub fn get_health(&self) -> u8 {
