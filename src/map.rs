@@ -1,3 +1,5 @@
+use crate::seed;
+
 struct Map {
     n: u8,
     eqn_deg: u8,
