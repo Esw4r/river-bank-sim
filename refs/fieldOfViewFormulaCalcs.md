@@ -71,7 +71,7 @@
 ---
 
 ## **Final Parameters to Check for (px, py):**
-1. $py \geq b$
-2. $py \leq \tan\left(\frac{\pi}{3} - r\right) (px - a) + b$
-3. $(px - a)^2 + (py - b)^2 \leq (radius)^2$  
-   - **Given:** $\text{radius} = 3$
+1. $py \geq \tan(r) \cdot (px - a) + b$
+2. $py \leq \tan\left(\frac{\pi}{3} + r\right) \cdot (px - a) + b$
+3. $(px - a)^2 + (py - b)^2 \leq (\text{radius})^2$  
+   - **Given:** $\text{Default radius} = 3$
