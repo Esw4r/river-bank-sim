@@ -1,0 +1,20 @@
+Algorithm isEntityInFOV:
+	INput : Current Entity currEntity, Target Entity tarEntity
+	REturns : Bool (if the Entity is in FOV or not)
+	
+	let x: u8 <- currEntity.get_posn()[0]
+	let y: u8 <- currEntity.get_posn()[1]
+
+	let x1: u8 <- tarEntity.get_posn()[0]
+	let y1: u8 <- tarEntity.get_posn()[1]
+
+	let radius: u8 <- currEntity.get_vision()
+	let fovRange: u8 <- currEntity.get_fov()
+	let fovAngle: u8 <- (currEntity.get_dir()*2)*(pi)/180      -- due to u8 the FOVAngle range from 0 to 179
+
+	let entityInRadius: bool = (x1 - x)^2 + (y1 - y)^2 <= (radius)^2
+	if (entityInRadius) then
+		let entityInFOV: bool = (y1 <= tan(fovRange + fovAngle)(x1 - a) + y) && (y1 >= tan(fovAngle)(x1 - a) + y)
+	
+	return entityInFOV
+	
