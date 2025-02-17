@@ -1,7 +1,4 @@
-use crate::map;
-
-pub fn create_seed(x: &String) -> &String {
-    // TODO:
-    // convert all strings to standard length by some typa manipulation
-    x
+pub fn create_seed(x: u64) -> String {
+    let max = u64::MAX;
+    (max - (max % x)).to_string()
 }
